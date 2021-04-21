@@ -6,6 +6,8 @@ from pyspark.sql.types import StructField, StructType, IntegerType, StringType,D
 from pyspark.sql.window import Window
 from pyspark.sql.functions import lag, lead, col, mean
 
+
+
 def sessions_python():
     sessions = open("Sessions.csv", "r")
 
@@ -49,7 +51,7 @@ def sessions_pandas():
     sessions.where(sessions.Status=='Close', inplace = True)
     sessions.dropna(thresh=2, inplace=True)
     print(sessions)
-    print(f'The average time of all session is:', sessions.duration.mean())
+    print(f'The average time of all session is:',   )
 
 def sessions_spark():
 
@@ -59,8 +61,8 @@ def sessions_spark():
 
     sessions= sessions.sort('User','Time')
 
-    sessions_diff = sessions.withColumn("NextSession", lag('Time').over(Window.partitionBy('User').orderBy('Time'))).where(sessions.Status=='Close')
-    sessions_diff= sessions_diff.withColumn("Duration", col("Time").cast(LongType()) - col('NextSession').cast(LongType())) .filter(sessions_diff.Status=='Close')
+    sessions_diff = sessions.withColumn("Session", lag('Time').over(Window.partitionBy('User').orderBy('Time'))).where(sessions.Status=='Close')
+    sessions_diff= sessions_diff.withColumn("Duration", col("Time").cast(LongType()) - col('Session').cast(LongType())) .filter(sessions_diff.Status=='Close')
     sessions_diff.select('User','Time','Duration').show()
     print(f'The average time of all session is:')
     sessions_diff.select(mean(col("Duration"))).show()
