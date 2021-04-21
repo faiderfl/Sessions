@@ -52,7 +52,7 @@ def sessions_pandas():
     sessions.where(sessions.Status=='Close', inplace = True)
     sessions.dropna(thresh=2, inplace=True)
     print(sessions)
-    print(f'The average time of all session is:',   )
+    print(f'The average time of all session is:', sessions.duration.mean())
 
 @count_elapsed_time
 def sessions_spark():
