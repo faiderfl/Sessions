@@ -37,7 +37,7 @@ To solve this problem we will first make some assumptions:
 
 ## Process
 
-To solve this problem I will do it with the first approach I can think of and in later versions it will be optimized, this in order to iterate on solutions and improve the system. I am sure that there are many better ways to do this exercise but we will find them on the way.
+To solve this problem I will do it with the first approximation I can think of and in later versions it will be optimized, this in order to iterate the solutions and improve the system. I am sure there are many better ways to do this exercise but we will find them along the way.
 In this case I will solve it in three different ways: Using basic Python, using Pandas and using Pyspark. However first we can define the general process for any solution.
 
 Steps:
@@ -50,7 +50,7 @@ Average_Sessions = Sum (Time of Sessions) / Number of Sessions
 
 Now the solution for each proposed form is found in the file: [Sessionalize.py](https://github.com/faiderfl/Sessions/blob/main/Sessionalize.py) where we create a method for each approach and call them all in the execution part of the system. 
 
-Now the solution for each proposed form is found in the file: Sessionalize.py where we create a method for each approach and call them all in the execution part of the system. 
+
 
 **Python:** 
 
