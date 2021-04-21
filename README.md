@@ -2,9 +2,9 @@
 
 This is an exercise that consists of creating an algorithm that can display the average time of all user sessions on a platform. Where we have this information:
 
-User = Identifier of the user on the platform
-Time = Timestamp of the moment when the session starts or ends.
-Status= Identifier that can be Open or Close.
+- User = Identifier of the user on the platform
+- Time = Timestamp of the moment when the session starts or ends.
+- Status= Identifier that can be Open or Close.
 
 The input for this process can come from any source, but for this first part of the exercise we will assume that the analysis is performed in batch mode and is received through a csv file containing the log of all user session openings and closings.
 
