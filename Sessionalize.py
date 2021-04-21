@@ -5,9 +5,10 @@ from pyspark import SparkContext
 from pyspark.sql.types import StructField, StructType, IntegerType, StringType,DoubleType,DecimalType,LongType
 from pyspark.sql.window import Window
 from pyspark.sql.functions import lag, lead, col, mean
+from  Elapsed_Time import count_elapsed_time
 
 
-
+@count_elapsed_time
 def sessions_python():
     sessions = open("Sessions.csv", "r")
 
@@ -41,7 +42,7 @@ def sessions_python():
     print(durations)
     print(f'The average time of all session is:', sum(durations)/counter_sessions)
 
-
+@count_elapsed_time
 def sessions_pandas():
 
     sessions= pd.read_csv('Sessions.csv', names=['User','Time','Status'])
@@ -53,6 +54,7 @@ def sessions_pandas():
     print(sessions)
     print(f'The average time of all session is:',   )
 
+@count_elapsed_time
 def sessions_spark():
 
     spark = SparkSession.builder.appName('Sessions').master('local[*]').getOrCreate()
